@@ -1,5 +1,7 @@
 console.log('sourced');
 
+
+
 var inventory = [];
 var fruit = {
   name: '',
@@ -9,7 +11,7 @@ var fruit = {
 var userMoney = 100;
 
 function randomNum(min, max) {
-  return Number((Math.random() * (max - min) + min).toFixed(2));
+  return Math.round(100*(Math.random() * (max - min) + min))/100;
 }
 
 var orange = {
@@ -42,30 +44,30 @@ $(document).ready(function (){
       } else if(arrayOfPrices[i].price <= 1) {
         arrayOfPrices[i].price += randomNum(0.01, 0.5);
       } else {
-        arrayOfPrices[i].price += (-0.5, 0.5);
+        arrayOfPrices[i].price += randomNum(-0.5, 0.5);
       }
     }
     console.log(arrayOfPrices);
   }, 15000);
   console.log(orange);
 
-  $('.buyButton').on('click', function(){
-    console.log('clicked button');
-
-    var fruitName = $(this).data('name');
-    fruit.name = fruitName;
-    // fruit.price = fruitName.price;
-    loopOfPrices();
-    inventory.push(fruit);
-    console.log(inventory);
-  });
+  // $('.buyButton').on('click', function(){
+  //   console.log('clicked button');
+  //
+  //   var fruitName = $(this).data('name');
+  //   console.log(fruitName);
+  //   fruit.price = arrayOfPrices[fruit.name].price;
+  //   loopOfPrices();
+  //   inventory.push(fruit);
+  //   console.log(inventory);
+  // });
 });
 
-var loopOfPrices = function(){
-  console.log('in loop price');
-  for (var i = 0; i < arrayOfPrices.length; i++) {
-    if(arrayOfPrices[i].name === $('.buyButton').data('name'))
-      fruit.price = arrayOfPrices[i].price;
-      return fruit.price;
-  }
-};
+// var loopOfPrices = function(){
+//   console.log(loop);
+//   for (var i = 0; i < arrayOfPrices.length; i++) {
+//     if(arrayOfPrices[i].name === $('.buyButton').data('name'))
+//       fruit.price = arrayOfPrices[i].price;
+//       return fruit.price;
+//   }
+//};
